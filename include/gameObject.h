@@ -6,7 +6,7 @@
 #include <SFML/Graphics.hpp>
 
 namespace GameEngine {
-	class GameObject : private Engine {
+	class GameObject {
 	private:
 		std::string m_name;
 		sf::Vector2f m_position;
@@ -15,14 +15,14 @@ namespace GameEngine {
 		
 		
 	public:
-		//static int gameObjCount;
+		static int gameObjCount;
 		
 		GameObject();
 		GameObject(std::string name, sf::Vector2f position = { 0,0 }, sf::Vector2f rotation = { 0,0 });
+		~GameObject();
 
 	public:
 		void Destroy();
-		virtual void Render();
 
 	public:
 		// getter setter
@@ -37,6 +37,7 @@ namespace GameEngine {
 	public:
 		virtual void Start();
 		virtual void Update(float deltatime);
+		virtual void Render();
 
 
 	};

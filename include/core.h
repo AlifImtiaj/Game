@@ -5,7 +5,6 @@
 #include <thread>
 #include <vector>
 
-#include <gameObject.h>
 #include <SFML/Graphics.hpp>
 
 namespace GameEngine {
@@ -19,7 +18,7 @@ namespace GameEngine {
 
 		sf::Vector2u m_resolution[2] = { {640,480}, {1280,720} };
 
-		std::vector<GameObject> m_gameObjs;
+		//std::vector<GameObject> m_gameObjs;
 
 
 	public:

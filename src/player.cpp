@@ -9,6 +9,10 @@ namespace GameEngine {
 		// do rendering by default
 	}
 
+	void Player::Update(float deltatime) {
+
+	}
+
 	void Player::Render() {
 
 	}

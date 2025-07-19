@@ -10,6 +10,14 @@ using namespace GameEngine;
 
 int main() {
 	GameObject g1("Name");
+	{
+		GameObject g2;
+		GameObject g3;
+		GameObject g43("123123");
+	}
+	GameObject g5;
+
+	std::cout << g5.GetName() << std::endl;
 
 	sf::RenderWindow renderWindow(sf::VideoMode({ WIDTH, HEIGHT }),
 		"Game", sf::Style::Close);

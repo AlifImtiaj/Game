@@ -9,7 +9,7 @@ namespace GameEngine {
 
 	void Engine::Init(sf::RenderWindow& window) {
 		m_window = &window;
-		std::cout << LogVector(m_window->getPosition()) << std::endl;
+		//std::cout << LogVector(m_window->getPosition()) << std::endl;
 		Update();
 		m_window->close();
 	}
@@ -28,9 +28,9 @@ namespace GameEngine {
 			deltatime = m_gameClock.restart().asSeconds();
 
 
-			for (auto& objects : m_gameObjs) {
-				objects.Update(deltatime);
-			}
+			//for (auto& objects : m_gameObjs) {
+			//	objects.Update(deltatime);
+			//}
 
 			//}
 			//else {
@@ -82,9 +82,9 @@ namespace GameEngine {
 	}
 
 	void Engine::Render() {
-		for (auto& objects : m_gameObjs) {
+		/*for (auto& objects : m_gameObjs) {
 			objects.Render();
-		}
+		}*/
 	}
 
 
