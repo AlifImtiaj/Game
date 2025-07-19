@@ -1,5 +1,7 @@
+// core.cpp
+
 #include <core.h>
-#include "gameObject.h"
+#include <gameObject.h>
 
 namespace GameEngine {
 	template<typename T>
@@ -14,6 +16,11 @@ namespace GameEngine {
 		m_window->close();
 	}
 
+	void Engine::AddObject(std::shared_ptr<GameObject> obj) {
+		obj->Start();
+		m_objects.push_back(std::move(obj));
+	}
+
 
 	void Engine::Update() {
 
@@ -22,25 +29,17 @@ namespace GameEngine {
 			HandleEvents();
 
 			// do anything you want here
-			//if (!bPaused) {
-
-
 			deltatime = m_gameClock.restart().asSeconds();
 
+			for (auto& objects : m_objects) {
+				objects->Update(deltatime);
+			}
 
-			//for (auto& objects : m_gameObjs) {
-			//	objects.Update(deltatime);
-			//}
-
-			//}
-			//else {
-			//	m_gameClock.restart();
-			//}
-
-			// We want to render everything after whole game logic is finished
 			m_window->clear();
 			Render();
 			m_window->display();
+
+			std::cout << m_objects.size() << std::endl;
 			
 		}
 	}
@@ -81,10 +80,12 @@ namespace GameEngine {
 		}
 	}
 
+	
+
 	void Engine::Render() {
-		/*for (auto& objects : m_gameObjs) {
-			objects.Render();
-		}*/
+		for (auto& objects : m_objects) {
+			objects->Render(*m_window);
+		}
 	}
 
 

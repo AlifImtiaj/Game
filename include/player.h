@@ -1,3 +1,5 @@
+// player.h
+
 #pragma once
 
 #include <iostream>
@@ -9,18 +11,16 @@
 namespace GameEngine {
 	class Player : public GameObject {
 	private:
-		bool bIsActive = true;
-
 
 	public:
-		Player(std::string name, sf::Vector2f position, sf::Vector2f rotation)
+		Player(std::string name, sf::Vector2f position, sf::Vector2f rotation = {0,0})
 			: GameObject(name, position, rotation) {}
 		Player();
 
 
 	public:
-		void Start();
-		void Update(float deltatime);
-		void Render();
+		void Start() override;
+		void Update(float deltatime) override;
+		void Render(sf::RenderWindow& window) override;
 	};
 }

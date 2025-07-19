@@ -1,18 +1,20 @@
+// gameObject.h
+
 #pragma once
 
 #include <iostream>
 #include <vector>
 
+#include <core.h>
 #include <SFML/Graphics.hpp>
 
 namespace GameEngine {
 	class GameObject {
 	private:
+		int m_id;
 		std::string m_name;
 		sf::Vector2f m_position;
 		sf::Vector2f m_rotation;
-		
-		
 		
 	public:
 		static int gameObjCount;
@@ -21,8 +23,6 @@ namespace GameEngine {
 		GameObject(std::string name, sf::Vector2f position = { 0,0 }, sf::Vector2f rotation = { 0,0 });
 		~GameObject();
 
-	public:
-		void Destroy();
 
 	public:
 		// getter setter
@@ -37,7 +37,7 @@ namespace GameEngine {
 	public:
 		virtual void Start();
 		virtual void Update(float deltatime);
-		virtual void Render();
+		virtual void Render(sf::RenderWindow& window);
 
 
 	};

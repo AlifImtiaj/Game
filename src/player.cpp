@@ -1,3 +1,5 @@
+// player.cpp
+
 #include <player.h>
 
 namespace GameEngine {
@@ -13,7 +15,10 @@ namespace GameEngine {
 
 	}
 
-	void Player::Render() {
-
+	void Player::Render(sf::RenderWindow& window) {
+		sf::CircleShape circle(25);
+		circle.setFillColor(sf::Color::Red);
+		circle.setPosition(GetPosition());
+		window.draw(circle);
 	}
 }
