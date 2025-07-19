@@ -27,6 +27,11 @@ namespace GameEngine {
 
 			deltatime = m_gameClock.restart().asSeconds();
 
+
+			for (auto& objects : m_gameObjs) {
+				objects.Update(deltatime);
+			}
+
 			//}
 			//else {
 			//	m_gameClock.restart();
@@ -76,25 +81,10 @@ namespace GameEngine {
 		}
 	}
 
-	//float pos = 0;
 	void Engine::Render() {
-		/*float speed = 200;
-		float radius = 25;
-		sf::Vector2 windowSize = m_window->getSize();
-
-		pos += deltaTime * speed;
-
-
-		if (pos >= windowSize.x - radius * 2)
-			pos = 0;
-
-		sf::CircleShape cs;
-		cs.setRadius(radius);
-		cs.setFillColor(sf::Color::White);
-
-		std::cout << "Position: " << LogVector(sf::Vector2f({pos, 0})) << std::endl;
-		cs.setPosition(sf::Vector2f({ pos, 0 }));
-		m_window->draw(cs);*/
+		for (auto& objects : m_gameObjs) {
+			objects.Render();
+		}
 	}
 
 
