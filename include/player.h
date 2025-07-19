@@ -4,18 +4,19 @@
 
 #include <iostream>
 
-
 #include <gameObject.h>
 #include <SFML/Graphics.hpp>
 
 namespace GameEngine {
 	class Player : public GameObject {
 	private:
+		void HandleInput(float deltatime);
+
 
 	public:
 		Player(std::string name, sf::Vector2f position, sf::Vector2f rotation = {0,0})
 			: GameObject(name, position, rotation) {}
-		Player();
+		Player() : GameObject() {}
 
 
 	public:

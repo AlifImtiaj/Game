@@ -27,6 +27,7 @@ namespace GameEngine {
 		while (bRunning) { 
 			// handle event first, then game logic, then render everything
 			HandleEvents();
+			if (!bRunning) return;
 
 			// do anything you want here
 			deltatime = m_gameClock.restart().asSeconds();
@@ -38,9 +39,6 @@ namespace GameEngine {
 			m_window->clear();
 			Render();
 			m_window->display();
-
-			std::cout << m_objects.size() << std::endl;
-			
 		}
 	}
 
@@ -56,7 +54,6 @@ namespace GameEngine {
 
 				if (keycode->scancode == sf::Keyboard::Scancode::Escape) {
 					bRunning = false;
-					m_window->close();
 				}
 
 				if (keycode->scancode == sf::Keyboard::Scancode::F11) {

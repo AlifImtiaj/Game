@@ -3,6 +3,13 @@
 #include <gameObject.h>
 
 namespace GameEngine {
+
+
+	template<typename T>
+	std::string LogVector(sf::Vector2<T> vector2) {
+		return "X: " + std::to_string(vector2.x) + ", Y: " + std::to_string(vector2.y);
+	}
+
 	int GameObject::gameObjCount = 0;
 	// constructors and destructors
 	GameObject::GameObject() {
@@ -23,10 +30,8 @@ namespace GameEngine {
 
 	void GameObject::Start() {
 		m_id = gameObjCount;
-		std::cout << "Im created. ID: " << m_id << std::endl;
 	}
 	void GameObject::Update(float deltatime) {
-		std::cout << "Hello, from gameobject# " << m_id << " update\n";
 	}
 	void GameObject::Render(sf::RenderWindow& window) {
 
