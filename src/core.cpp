@@ -1,4 +1,5 @@
 #include <core.h>
+#include "gameObject.h"
 
 namespace GameEngine {
 	template<typename T>
