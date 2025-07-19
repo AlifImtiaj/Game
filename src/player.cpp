@@ -17,7 +17,7 @@ namespace GameEngine {
 	void Player::HandleInput(float deltatime) {
 		sf::Vector2f moveDirection(0,0);
 
-		float speed = 100;
+		float speed = 250;
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scancode::W)) moveDirection.y = -1;
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scancode::S)) moveDirection.y = 1;

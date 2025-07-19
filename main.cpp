@@ -18,12 +18,8 @@ int main() {
 		"Game", sf::Style::Close);
 	//renderWindow.setFramerateLimit(60);
 	renderWindow.setVerticalSyncEnabled(true);
-	int* choice = new int;
 	
-	std::cout << "Press 1 for mouse control\n"
-		"Press 2 for keyboard control (Preferred)\n"
-		"Enter: ";
-	std::cin >> *choice;
+
 	// create the engine first
 	Engine e;
 
@@ -34,18 +30,6 @@ int main() {
 	e.AddObject(g1);
 
 	auto player = std::make_shared<Player>("My Player", sf::Vector2f({ 250,250 }));
-	switch (*choice) {
-	case 1:
-		player->bKeyboardControl = false;
-		break;
-	case 2:
-		player->bKeyboardControl = true;
-		break;
-	default:
-		player->bKeyboardControl = true;
-		break;
-	}
-	delete choice;
 	e.AddObject(player);
 
 	// then initialize or initialise the engine FUCK FINALLY
