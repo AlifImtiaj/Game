@@ -24,6 +24,8 @@ namespace GameEngine {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scancode::A)) moveDirection.x = -1;
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scancode::D)) moveDirection.x = 1;
 
+
+
 		if (moveDirection.x != 0 || moveDirection.y != 0)
 		{
 			//float length = moveDirection.length();
@@ -31,19 +33,27 @@ namespace GameEngine {
 		}
 
 		sf::Vector2f deltaMove = moveDirection * speed * deltatime;
-		SetPosition(GetPosition() + deltaMove);
+		if (bKeyboardControl)
+			SetPosition(GetPosition() + deltaMove);
+		else
+			SetPosition(static_cast<sf::Vector2f>(m_mousePos));
 		
 	}
 
 	void Player::Update(float deltatime) {
 		HandleInput(deltatime);
-		std::cout << "Position : " << LogVector(GetPosition()) << std::endl;
+		//std::cout << "Position : " << LogVector({1,2}) << std::endl;
+		std::cout << "Mouse position: " << LogVector(m_mousePos) << std::endl;
 	}
 
 
 
 	void Player::Render(sf::RenderWindow& window) {
-		sf::CircleShape circle(25);
+		m_mousePos = sf::Mouse::getPosition(window);
+		m_mousePos.x -= m_radius;
+		m_mousePos.y -= m_radius;
+
+		sf::CircleShape circle(m_radius);
 		circle.setFillColor(sf::Color::Red);
 		circle.setPosition(GetPosition());
 		window.draw(circle);

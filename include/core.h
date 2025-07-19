@@ -7,6 +7,7 @@
 #include <vector>
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
 
 
 namespace GameEngine {
@@ -20,13 +21,14 @@ namespace GameEngine {
 		bool bRunning = true; // for game loop
 		bool bPaused = false;
 
-		sf::Vector2u m_resolution[2] = { {640,480}, {1280,720} };
+		sf::Vector2u m_resolution[2] = { { 1024, 576 }, { 1280 , 720 } };
 
 		std::vector<std::shared_ptr<GameObject>> m_objects;
 
 	public:
 		void Init(sf::RenderWindow& window);
 		void AddObject(std::shared_ptr<GameObject> obj);
+
 
 		float deltatime;
 
