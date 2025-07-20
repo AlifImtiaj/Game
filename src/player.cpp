@@ -42,6 +42,12 @@ namespace GameEngine {
 
 	void Player::Update(float deltatime) {
 		HandleInput(deltatime);
+
+		if (GetPosition().x > 512) {
+			m_color = sf::Color::Red;
+		}
+		else m_color = sf::Color::White;
+
 		//std::cout << "Position : " << LogVector({1,2}) << std::endl;
 		//std::cout << "Mouse position: " << LogVector(m_mousePos) << std::endl;
 	}
@@ -53,9 +59,16 @@ namespace GameEngine {
 		//m_mousePos.x -= m_radius;
 		//m_mousePos.y -= m_radius;
 
+
+		// it offsets the sprite to positive X and Y to the radius
+		sf::Vector2f position = GetPosition();
+		position.x -= m_radius;
+		position.y -= m_radius;
+
 		sf::CircleShape circle(m_radius);
+		circle.setPointCount(4);
 		circle.setFillColor(m_color);
-		circle.setPosition(GetPosition());
+		circle.setPosition(position);
 		window.draw(circle);
 	}
 }

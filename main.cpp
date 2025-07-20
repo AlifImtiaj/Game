@@ -29,11 +29,11 @@ int main() {
 	auto g1 = std::make_shared<GameObject>("Player", sf::Vector2f({200,200}));
 	e.AddObject(g1);
 
-	auto player = std::make_shared<Player>("My Player", 200, sf::Color::White, sf::Vector2f({ 250,250 }));
+	auto player = std::make_shared<Player>("My Player", 200.f);
 	e.AddObject(player);
 
 	// then initialize or initialise the engine FUCK FINALLY
-	// FUCK ALL BROKED Again
+	// FUCK ALL BROKE Again
 	// FIXED LOL
 	e.Init(renderWindow);
 

@@ -34,10 +34,5 @@ namespace GameEngine {
 	void GameObject::Update(float deltatime) {
 	}
 	void GameObject::Render(sf::RenderWindow& window) {
-
-		//sf::CircleShape circle(25);
-		//circle.setFillColor(sf::Color::Red);
-		//circle.setPosition(m_position);
-		//window.draw(circle);
 	}
 }

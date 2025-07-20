@@ -17,12 +17,12 @@ namespace GameEngine {
 		sf::Color m_color;
 
 	public:
-		Player(std::string name, float speed = 0.0f, sf::Vector2f position = { 0,0 }, sf::Vector2f rotation = { 0,0 })
+		Player(const std::string& name, float speed = 0.0f, sf::Vector2f position = { 0,0 }, sf::Vector2f rotation = { 0,0 })
 			: GameObject(name, position, rotation), m_speed(speed) {}
 
-		Player(std::string name, float speed = 0.0f,
-			sf::Color color = sf::Color::Red,
-			sf::Vector2f position = { 0,0 }, sf::Vector2f rotation = { 0,0 })
+		Player(const std::string& name, sf::Vector2f position = { 0,0 }, sf::Vector2f rotation = { 0,0 }, 
+			float speed = 0.0f,
+			sf::Color color = sf::Color::Red)
 			: GameObject(name, position, rotation), m_speed(speed), m_color(color) {
 		}
 

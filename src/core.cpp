@@ -81,11 +81,15 @@ namespace GameEngine {
 	void Engine::Render() {
 		sf::Font font("resources/fonts/PixeloidMono.ttf");
 		sf::Text text(font, "Press Esc to quit", 45);
+		
+
 		for (auto& objects : m_objects) {
 			objects->Render(*m_window);
 		}
+
 		text.setPosition({ 100,0 });
 		m_window->draw(text);
+		
 	}
 
 

@@ -30,12 +30,12 @@ namespace GameEngine {
 		void AddObject(std::shared_ptr<GameObject> obj);
 
 
-		float deltatime;
 
 	private:
 		void Update();
 		void HandleEvents();
 		void Render();
+		float deltatime = 0.0f;
 	};
 }
 
