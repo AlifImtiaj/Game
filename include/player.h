@@ -20,6 +20,13 @@ namespace GameEngine {
 		Player(std::string name, float speed = 0.0f, sf::Vector2f position = { 0,0 }, sf::Vector2f rotation = { 0,0 })
 			: GameObject(name, position, rotation), m_speed(speed) {}
 
+		Player(std::string name, float speed = 0.0f,
+			sf::Color color = sf::Color::Red,
+			sf::Vector2f position = { 0,0 }, sf::Vector2f rotation = { 0,0 })
+			: GameObject(name, position, rotation), m_speed(speed), m_color(color) {
+		}
+
+
 		Player() : GameObject(), m_speed(0), m_radius(0) {}
 
 
@@ -27,7 +34,7 @@ namespace GameEngine {
 		float GetRadius() const { return m_radius; }
 		void SetRadius(float radius) { m_radius = radius; }
 		void SetColor(sf::Color color) { m_color = color; }
-		sf::Color GetColor() { return m_color; }
+		sf::Color GetColor() const { return m_color; }
 
 	public:
 		void Start() override;
