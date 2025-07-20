@@ -40,8 +40,13 @@ namespace GameEngine {
 		
 	}
 
+	//static void OutOfWindow() {
+
+	//}
+
 	void Player::Update(float deltatime) {
 		HandleInput(deltatime);
+		//OutOfWindow();
 
 		if (GetPosition().x > 512) {
 			m_color = sf::Color::Red;

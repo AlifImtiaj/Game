@@ -3,10 +3,8 @@
 #include <gameObject.h>
 
 namespace GameEngine {
-
-
 	template<typename T>
-	std::string LogVector(sf::Vector2<T> vector2) {
+	static std::string LogVector(sf::Vector2<T> vector2) {
 		return "X: " + std::to_string(vector2.x) + ", Y: " + std::to_string(vector2.y);
 	}
 
