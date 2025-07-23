@@ -8,6 +8,7 @@
 
 const int WIDTH = 1280;
 const int HEIGHT = 720;
+const std::string TITLE = "Game";
 
 using namespace GameEngine;
 
@@ -15,7 +16,7 @@ using namespace GameEngine;
 int main() {
 	
 	sf::RenderWindow renderWindow(sf::VideoMode({ WIDTH, HEIGHT }),
-		"Game", sf::Style::Close);
+		TITLE, sf::Style::Close);
 	//renderWindow.setFramerateLimit(60);
 	renderWindow.setVerticalSyncEnabled(true);
 	
@@ -26,11 +27,14 @@ int main() {
 
 	// add all the fucking objects
 	
-	auto g1 = std::make_shared<GameObject>("Player", sf::Vector2f({200,200}));
+	/*auto g1 = std::make_shared<GameObject>("Player", sf::Vector2f({200,200}));
 	e.AddObject(g1);
 
 	auto player = std::make_shared<Player>("My Player", 200.f);
-	e.AddObject(player);
+	e.AddObject(player);*/
+
+	Player player("Player", 150.f);
+	e.AddObject(&player);
 
 	// then initialize the engine
 	// FUCK ALL BROKE Again

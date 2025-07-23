@@ -11,7 +11,6 @@ namespace GameEngine {
 	class Player : public GameObject {
 	private:
 		void HandleInput(float deltatime);
-		//sf::Vector2i m_mousePos;
 		float m_radius = 25;
 		float m_speed;
 		sf::Color m_color;

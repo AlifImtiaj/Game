@@ -5,19 +5,22 @@
 
 namespace GameEngine {
 
-	sf::Vector2f screenSize;
 	void Engine::Init(sf::RenderWindow& window) {
 		m_window = &window;
-		screenSize = static_cast<sf::Vector2f>(m_window->getSize());
 		//std::cout << LogVector(m_window->getPosition()) << std::endl;
 		Update();
 		m_window->close();
 	}
 
-	void Engine::AddObject(std::shared_ptr<GameObject> obj) {
+	void Engine::AddObject(GameObject* obj) {
 		obj->Start();
 		m_objects.push_back(std::move(obj));
 	}
+
+	//void Engine::AddObject(std::shared_ptr<GameObject> obj) {
+		//obj->Start();
+		//m_objects.push_back(std::move(obj));
+	//}
 
 
 	void Engine::Update() {

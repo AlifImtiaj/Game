@@ -11,7 +11,7 @@
 namespace GameEngine {
 	class GameObject {
 	private:
-		int m_id = 0;
+		int m_id = 0; // debug purpose
 		std::string m_name;
 		sf::Vector2f m_position;
 		sf::Vector2f m_rotation;
