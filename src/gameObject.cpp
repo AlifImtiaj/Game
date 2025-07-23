@@ -2,6 +2,7 @@
 
 #include <gameObject.h>
 
+
 namespace GameEngine {
 	template<typename T>
 	static std::string LogVector(sf::Vector2<T> vector2) {
@@ -29,7 +30,7 @@ namespace GameEngine {
 	void GameObject::Start() {
 		m_id = gameObjCount;
 	}
-	void GameObject::Update(float deltatime) {
+	void GameObject::Update(float& deltatime) {
 	}
 	void GameObject::Render(sf::RenderWindow& window) {
 	}

@@ -19,14 +19,13 @@ namespace GameEngine {
 		sf::RenderWindow *m_window = nullptr;
 
 		bool bRunning = true; // for game loop
-		bool bPaused = false;
 
-		std::vector<GameObject*> m_objects;
+		std::vector<std::shared_ptr<GameObject>> m_objects;
 
 	public:
 		void Init(sf::RenderWindow& window);
-		//void AddObject(std::shared_ptr<GameObject> obj);
-		void AddObject(GameObject* obj);
+		void AddObject(std::shared_ptr<GameObject> obj);
+		//void AddObject(GameObject* obj);
 
 
 

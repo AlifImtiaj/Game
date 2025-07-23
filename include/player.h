@@ -10,10 +10,11 @@
 namespace GameEngine {
 	class Player : public GameObject {
 	private:
-		void HandleInput(float deltatime);
+		//void HandleInput(float deltatime);
 		float m_radius = 25;
 		float m_speed;
 		sf::Color m_color;
+		
 
 	public:
 		Player(const std::string& name, float speed = 0.0f, sf::Vector2f position = { 0,0 }, sf::Vector2f rotation = { 0,0 })
@@ -35,9 +36,17 @@ namespace GameEngine {
 		void SetColor(sf::Color color) { m_color = color; }
 		sf::Color GetColor() const { return m_color; }
 
+
+	
+	// user defined
 	public:
+		void HandleInput(float& deltatime);
+
+
+	// inherited functions
+	protected:
 		void Start() override;
-		void Update(float deltatime) override;
+		void Update(float& deltatime) override;
 		void Render(sf::RenderWindow& window) override;
 
 		//bool bKeyboardControl = true;

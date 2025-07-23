@@ -28,13 +28,10 @@ int main() {
 	// add all the fucking objects
 	
 	/*auto g1 = std::make_shared<GameObject>("Player", sf::Vector2f({200,200}));
-	e.AddObject(g1);
+	e.AddObject(g1);*/
 
-	auto player = std::make_shared<Player>("My Player", 200.f);
-	e.AddObject(player);*/
-
-	Player player("Player", 150.f);
-	e.AddObject(&player);
+	auto player = std::make_shared<Player>("Player", 100.f, sf::Vector2f{100,200});
+	e.AddObject(player);
 
 	// then initialize the engine
 	// FUCK ALL BROKE Again

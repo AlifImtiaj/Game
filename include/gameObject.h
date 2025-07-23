@@ -9,8 +9,10 @@
 #include <SFML/Graphics.hpp>
 
 namespace GameEngine {
+	class Engine;
 	class GameObject {
 	private:
+		friend class Engine;
 		int m_id = 0; // debug purpose
 		std::string m_name;
 		sf::Vector2f m_position;
@@ -21,8 +23,7 @@ namespace GameEngine {
 		
 		GameObject();
 		GameObject(std::string name, sf::Vector2f position = { 0,0 }, sf::Vector2f rotation = { 0,0 });
-		~GameObject();
-
+		virtual ~GameObject();
 
 	public:
 		// getter setter
@@ -34,11 +35,9 @@ namespace GameEngine {
 		sf::Vector2f GetRotation() const { return m_rotation; }
 		std::string GetName() const { return m_name; }
 
-	public:
+	protected:
 		virtual void Start();
-		virtual void Update(float deltatime);
+		virtual void Update(float& deltatime);
 		virtual void Render(sf::RenderWindow& window);
-
-
 	};
 }

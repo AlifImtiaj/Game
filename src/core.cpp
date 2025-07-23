@@ -12,15 +12,15 @@ namespace GameEngine {
 		m_window->close();
 	}
 
-	void Engine::AddObject(GameObject* obj) {
-		obj->Start();
-		m_objects.push_back(std::move(obj));
-	}
-
-	//void Engine::AddObject(std::shared_ptr<GameObject> obj) {
+	//void Engine::AddObject(GameObject* obj) {
 		//obj->Start();
 		//m_objects.push_back(std::move(obj));
 	//}
+
+	void Engine::AddObject(std::shared_ptr<GameObject> obj) {
+		obj->Start();
+		m_objects.push_back(std::move(obj));
+	}
 
 
 	void Engine::Update() {
@@ -54,16 +54,6 @@ namespace GameEngine {
 				if (keycode->scancode == sf::Keyboard::Scancode::Escape) {
 					bRunning = false;
 				}
-			}
-
-			else if (event->is<sf::Event::FocusLost>()) {
-				bPaused = true;  // Pause game when window loses focus
-				std::cout << "Paused (Lost Focus)\n";
-			}
-
-			else if (event->is<sf::Event::FocusGained>()) {
-				bPaused = false; // Unpause when window gains focus
-				std::cout << "Unpaused (Gained Focus)\n";
 			}
 		}
 	}

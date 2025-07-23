@@ -11,11 +11,12 @@ namespace GameEngine {
 
 
 	void Player::Start() {
-		// do rendering by default
+		// something to do in the start
 	}
 
-	void Player::HandleInput(float deltatime) {
-		sf::Vector2f moveDirection(0,0);
+
+	void Player::HandleInput(float& deltatime) {
+		sf::Vector2f moveDirection(0, 0);
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scancode::W)) moveDirection.y = -1;
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scancode::S)) moveDirection.y = 1;
@@ -35,36 +36,19 @@ namespace GameEngine {
 		//if (bKeyboardControl)
 
 		SetPosition(GetPosition() + deltaMove);
-		//else
-		//	SetPosition(static_cast<sf::Vector2f>(m_mousePos));
-		
 	}
 
-	//static void OutOfWindow() {
-
-	//}
-
-	void Player::Update(float deltatime) {
-		HandleInput(deltatime);
+	void Player::Update(float& deltatime) {
 		//OutOfWindow();
-		
+		HandleInput(deltatime);
 
 		if (GetPosition().x > 512) {
 			m_color = sf::Color::Red;
 		}
 		else m_color = sf::Color::White;
-
-		//std::cout << "Position : " << LogVector({1,2}) << std::endl;
-		//std::cout << "Mouse position: " << LogVector(m_mousePos) << std::endl;
 	}
 
-
-
 	void Player::Render(sf::RenderWindow& window) {
-		//m_mousePos = sf::Mouse::getPosition(window);
-		//m_mousePos.x -= m_radius;
-		//m_mousePos.y -= m_radius;
-
 
 		// it offsets the sprite to positive X and Y to the radius
 		sf::Vector2f position = GetPosition();
