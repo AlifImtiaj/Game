@@ -6,8 +6,8 @@
 
 #include <SFML/Graphics.hpp>
 
-const int WIDTH = 1024;
-const int HEIGHT = 576;
+const int WIDTH = 1280;
+const int HEIGHT = 720;
 
 using namespace GameEngine;
 
@@ -32,7 +32,7 @@ int main() {
 	auto player = std::make_shared<Player>("My Player", 200.f);
 	e.AddObject(player);
 
-	// then initialize or initialise the engine FUCK FINALLY
+	// then initialize the engine
 	// FUCK ALL BROKE Again
 	// FIXED LOL
 	e.Init(renderWindow);

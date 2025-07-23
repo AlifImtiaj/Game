@@ -5,8 +5,10 @@
 
 namespace GameEngine {
 
+	sf::Vector2f screenSize;
 	void Engine::Init(sf::RenderWindow& window) {
 		m_window = &window;
+		screenSize = static_cast<sf::Vector2f>(m_window->getSize());
 		//std::cout << LogVector(m_window->getPosition()) << std::endl;
 		Update();
 		m_window->close();
@@ -38,27 +40,17 @@ namespace GameEngine {
 		}
 	}
 
-	bool highRes = false;
+	// unoptimized Event handling
 	void Engine::HandleEvents() {
 		while (const std::optional event = m_window->pollEvent()) {
 			if (event->is<sf::Event::Closed>()) {
 				bRunning = false;
 				std::cout << "closed " << bRunning;
 			}
-
 			else if (const auto* keycode = event->getIf<sf::Event::KeyPressed>()) {
-
 				if (keycode->scancode == sf::Keyboard::Scancode::Escape) {
 					bRunning = false;
 				}
-
-				if (keycode->scancode == sf::Keyboard::Scancode::F11) {
-					highRes = !highRes;
-					m_window->close();
-					m_window->create(sf::VideoMode(m_resolution[highRes]), "Game", sf::Style::Close);
-					m_window->setFramerateLimit(60);
-				}
-
 			}
 
 			else if (event->is<sf::Event::FocusLost>()) {
@@ -75,18 +67,8 @@ namespace GameEngine {
 
 
 	void Engine::Render() {
-		sf::Font font("resources/fonts/PixeloidMono.ttf");
-		sf::Text text(font, "Press Esc to quit", 45);
-		
-
 		for (auto& objects : m_objects) {
 			objects->Render(*m_window);
 		}
-
-		text.setPosition({ 100,0 });
-		m_window->draw(text);
-		
 	}
-
-
 }
