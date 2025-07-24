@@ -8,15 +8,10 @@ namespace GameEngine {
 
 	void Engine::Init(sf::RenderWindow& window) {
 		m_window = &window;
-		//std::cout << LogVector(m_window->getPosition()) << std::endl;
+		
 		Update();
 		m_window->close();
 	}
-
-	//void Engine::AddObject(GameObject* obj) {
-		//obj->Start();
-		//m_objects.push_back(std::move(obj));
-	//}
 
 	void Engine::AddObject(std::shared_ptr<GameObject> obj) {
 		obj->Start();

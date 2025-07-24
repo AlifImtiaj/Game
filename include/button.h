@@ -22,9 +22,16 @@ namespace GameEngine {
 		sf::Vector2f m_size;
 
 		sf::Font m_font = sf::Font("resources/fonts/PixeloidMono.ttf");
-		sf::Text m_text = sf::Text(m_font, "", 20);
+		sf::Text m_text = sf::Text(m_font, "TEST", 20);
+
+		sf::Color m_normalColor = sf::Color(100, 100, 100, 255);
+		sf::Color m_hoverColor = sf::Color(125, 125, 125, 255);
+		sf::Color m_onClickColor = sf::Color(80, 80, 80, 255);
 
 	public:
+
+		void SetFont(const std::filesystem::path& filename);
+		void SetText(const std::string& text);
 
 	public:
 		// override functions;
@@ -35,9 +42,9 @@ namespace GameEngine {
 
 
 	public:
-		void OnHover();
-		void OnClick();
-		void OnExit();
+		virtual bool OnHover(sf::Vector2i& mousePositionRelativeToWindow);
+		virtual bool OnClick();
+		virtual bool OnExit();
 
 	};
 }

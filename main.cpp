@@ -13,14 +13,13 @@ const std::string TITLE = "Game";
 
 using namespace GameEngine;
 
-
 int main() {
+	sf::ContextSettings context;
+	context.antiAliasingLevel = 0; // anti aliasing 
 	
 	sf::RenderWindow renderWindow(sf::VideoMode({ WIDTH, HEIGHT }),
-		TITLE, sf::Style::Close);
-	//renderWindow.setFramerateLimit(60);
+		TITLE, sf::State::Windowed, context);
 	renderWindow.setVerticalSyncEnabled(true);
-	
 
 	// create the engine first
 	Engine e;
@@ -28,17 +27,15 @@ int main() {
 
 	// add all the fucking objects
 	
-	/*auto g1 = std::make_shared<GameObject>("Player", sf::Vector2f({200,200}));
-	e.AddObject(g1);*/
-
-
-	auto player = std::make_shared<Player>("Player", 200.f, sf::Vector2f{100,200});
+	auto player = std::make_shared<Player>("Player", 350.f, sf::Vector2f{100,200});
 	e.AddObject(player);
 
 
 	// UI 
 	auto b1 = std::make_shared<Button>("Click", sf::Vector2f{ 200,300 }, sf::Vector2f{ 300,130 });
 	e.AddObject(b1);
+	/*auto b3 = std::make_shared<Button>("Click", sf::Vector2f{ 100,200 }, sf::Vector2f{ 290,100 });
+	e.AddObject(b3);*/
 	// then initialize the engine
 	// FUCK ALL BROKE Again
 	// FIXED LOL
