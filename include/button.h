@@ -9,9 +9,7 @@
 #include <SFML/Window.hpp>
 
 namespace GameEngine {
-	class Engine;
 	class Button: public GameObject {
-		friend class Engine;
 
 	public:
 		Button(std::string text, sf::Vector2f position = { 0,0 }, sf::Vector2f size = { 0,0 });

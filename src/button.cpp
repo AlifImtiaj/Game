@@ -10,7 +10,7 @@ namespace GameEngine {
 
 
 
-	Button::Button(std::string message, sf::Vector2f position, sf::Vector2f size) {
+	Button::Button(std::string message, sf::Vector2f position, sf::Vector2f size) : GameObject(message, position) {
 		//sf::Font font("resources/fonts/PixeloidMono.ttf";
 		m_position = position;
 		m_size = size;
@@ -80,12 +80,12 @@ namespace GameEngine {
 		}
 		// calls on exit when mouse leave the area
 		// idk what to do, just created
-		return OnExit();		
+		return false;
 	}
 
 	bool Button::OnClick() {
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
-			std::cout << "Button pressed...\n";
+			std::cout << "Button pressed " << this->objId << std::endl;
 			return true;
 		}
 		return false;

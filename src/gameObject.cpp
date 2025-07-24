@@ -17,6 +17,7 @@ namespace GameEngine {
 		m_rotation = { 0,0 };
 	}
 	GameObject::GameObject(std::string name, sf::Vector2f position, sf::Vector2f rotation) {
+		objId = gameObjCount;
 		++gameObjCount;
 		m_name = name;
 		m_position = position;
@@ -28,7 +29,6 @@ namespace GameEngine {
 	}
 
 	void GameObject::Start() {
-		m_id = gameObjCount;
 	}
 	void GameObject::Update(float& deltatime) {
 	}

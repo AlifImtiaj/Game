@@ -18,7 +18,7 @@ int main() {
 	context.antiAliasingLevel = 0; // anti aliasing 
 	
 	sf::RenderWindow renderWindow(sf::VideoMode({ WIDTH, HEIGHT }),
-		TITLE, sf::State::Windowed, context);
+		TITLE, sf::Style::Close);
 	renderWindow.setVerticalSyncEnabled(true);
 
 	// create the engine first
@@ -34,8 +34,8 @@ int main() {
 	// UI 
 	auto b1 = std::make_shared<Button>("Click", sf::Vector2f{ 200,300 }, sf::Vector2f{ 300,130 });
 	e.AddObject(b1);
-	/*auto b3 = std::make_shared<Button>("Click", sf::Vector2f{ 100,200 }, sf::Vector2f{ 290,100 });
-	e.AddObject(b3);*/
+	auto b3 = std::make_shared<Button>("Hello", sf::Vector2f{ 200,0 }, sf::Vector2f{ 290,100 });
+	e.AddObject(b3);
 	// then initialize the engine
 	// FUCK ALL BROKE Again
 	// FIXED LOL

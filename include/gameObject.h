@@ -13,7 +13,6 @@ namespace GameEngine {
 	class GameObject {
 	private:
 		friend class Engine;
-		int m_id = 0; // debug purpose
 		std::string m_name;
 		sf::Vector2f m_position;
 		sf::Vector2f m_rotation;
@@ -26,6 +25,7 @@ namespace GameEngine {
 		virtual ~GameObject();
 
 	public:
+		int objId = 0; // debug purpose
 		// getter setter
 		void SetName(std::string name) { m_name = name; }
 		void SetPosition(sf::Vector2f position) { m_position = position; }
