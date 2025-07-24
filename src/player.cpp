@@ -56,7 +56,6 @@ namespace GameEngine {
 		position.y -= m_radius;
 
 		sf::CircleShape circle(m_radius);
-		circle.setPointCount(4);
 		circle.setFillColor(m_color);
 		circle.setPosition(position);
 		window.draw(circle);

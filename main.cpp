@@ -3,6 +3,7 @@
 #include <core.h>
 #include <gameObject.h>
 #include <player.h>
+#include "button.h"
 
 #include <SFML/Graphics.hpp>
 
@@ -30,9 +31,14 @@ int main() {
 	/*auto g1 = std::make_shared<GameObject>("Player", sf::Vector2f({200,200}));
 	e.AddObject(g1);*/
 
-	auto player = std::make_shared<Player>("Player", 100.f, sf::Vector2f{100,200});
+
+	auto player = std::make_shared<Player>("Player", 200.f, sf::Vector2f{100,200});
 	e.AddObject(player);
 
+
+	// UI 
+	auto b1 = std::make_shared<Button>("Click", sf::Vector2f{ 200,300 }, sf::Vector2f{ 300,130 });
+	e.AddObject(b1);
 	// then initialize the engine
 	// FUCK ALL BROKE Again
 	// FIXED LOL
