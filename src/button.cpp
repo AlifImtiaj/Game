@@ -8,8 +8,6 @@ namespace GameEngine {
 		return "X: " + std::to_string(vector2.x) + ", Y: " + std::to_string(vector2.y);
 	}
 
-
-
 	Button::Button(std::string message, sf::Vector2f position, sf::Vector2f size) : GameObject(message, position) {
 		//sf::Font font("resources/fonts/PixeloidMono.ttf";
 		m_position = position;
@@ -78,8 +76,6 @@ namespace GameEngine {
 				return true;
 			}
 		}
-		// calls on exit when mouse leave the area
-		// idk what to do, just created
 		return false;
 	}
 
@@ -94,7 +90,4 @@ namespace GameEngine {
 	bool Button::OnExit() {
 		return false;
 	}
-
-
-
 }

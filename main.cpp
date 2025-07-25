@@ -28,14 +28,13 @@ int main() {
 	// add all the fucking objects
 	
 	auto player = std::make_shared<Player>("Player", 350.f, sf::Vector2f{100,200});
+	player->SetSpeed(250.f);
+	player->SetRadius(50.f);
 	e.AddObject(player);
 
 
-	// UI 
-	auto b1 = std::make_shared<Button>("Click", sf::Vector2f{ 200,300 }, sf::Vector2f{ 300,130 });
-	e.AddObject(b1);
-	auto b3 = std::make_shared<Button>("Hello", sf::Vector2f{ 200,0 }, sf::Vector2f{ 290,100 });
-	e.AddObject(b3);
+	//auto b3 = std::make_shared<Button>("Hello", sf::Vector2f{ 200,0 }, sf::Vector2f{ 290,100 });
+	//e.AddObject(b3);
 	// then initialize the engine
 	// FUCK ALL BROKE Again
 	// FIXED LOL

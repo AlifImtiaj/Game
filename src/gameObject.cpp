@@ -27,11 +27,4 @@ namespace GameEngine {
 	GameObject::~GameObject() {
 		gameObjCount--;
 	}
-
-	void GameObject::Start() {
-	}
-	void GameObject::Update(float& deltatime) {
-	}
-	void GameObject::Render(sf::RenderWindow& window) {
-	}
 }

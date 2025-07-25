@@ -16,6 +16,7 @@ namespace GameEngine {
 
 
 	void Player::HandleInput(float& deltatime) {
+		if (!bIsActive) return;
 		sf::Vector2f moveDirection(0, 0);
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scancode::W)) moveDirection.y = -1;
@@ -39,16 +40,13 @@ namespace GameEngine {
 	}
 
 	void Player::Update(float& deltatime) {
-		//OutOfWindow();
 		HandleInput(deltatime);
 
-		if (GetPosition().x > 512) {
-			m_color = sf::Color::Red;
-		}
-		else m_color = sf::Color::White;
 	}
 
 	void Player::Render(sf::RenderWindow& window) {
+
+		if (!bIsActive) return;
 
 		// it offsets the sprite to positive X and Y to the radius
 		sf::Vector2f position = GetPosition();

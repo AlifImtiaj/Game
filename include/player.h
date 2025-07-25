@@ -10,10 +10,10 @@
 namespace GameEngine {
 	class Player : public GameObject {
 	private:
-		//void HandleInput(float deltatime);
 		float m_radius = 100;
 		float m_speed;
 		sf::Color m_color;
+		bool bIsActive = true;
 		
 
 	public:
@@ -31,15 +31,23 @@ namespace GameEngine {
 
 
 	public:
-		float GetRadius() const { return m_radius; }
+		// setters
 		void SetRadius(float radius) { m_radius = radius; }
+		void SetSpeed(float speed) { m_speed = speed; }
 		void SetColor(sf::Color color) { m_color = color; }
+		void SetActive(bool isActive) { bIsActive = isActive; }
+
+
+		// Getters
+		float GetRadius() const { return m_radius; }
+		float GetSpeed() const { return m_speed; }
 		sf::Color GetColor() const { return m_color; }
+		bool GetActive() const { return bIsActive; }
 
 
 	
 	// user defined
-	public:
+	private:
 		void HandleInput(float& deltatime);
 
 
@@ -48,7 +56,5 @@ namespace GameEngine {
 		void Start() override;
 		void Update(float& deltatime) override;
 		void Render(sf::RenderWindow& window) override;
-
-		//bool bKeyboardControl = true;
 	};
 }

@@ -16,6 +16,7 @@ namespace GameEngine {
 		std::string m_name;
 		sf::Vector2f m_position;
 		sf::Vector2f m_rotation;
+		sf::Vector2f m_moveDirection = {0,0};
 		
 	public:
 		static int gameObjCount;
@@ -30,14 +31,16 @@ namespace GameEngine {
 		void SetName(std::string name) { m_name = name; }
 		void SetPosition(sf::Vector2f position) { m_position = position; }
 		void SetRotation(sf::Vector2f rotation) { m_rotation = rotation; }
+		void SetMoveDirection(sf::Vector2f moveDirection) { m_moveDirection = moveDirection; }
 
 		sf::Vector2f GetPosition() const { return m_position; }
 		sf::Vector2f GetRotation() const { return m_rotation; }
 		std::string GetName() const { return m_name; }
+		sf::Vector2f GetMoveDirection() const { return m_moveDirection; }
 
 	protected:
-		virtual void Start();
-		virtual void Update(float& deltatime);
-		virtual void Render(sf::RenderWindow& window);
+		virtual void Start() = 0;
+		virtual void Update(float& deltatime) = 0;
+		virtual void Render(sf::RenderWindow& window) = 0;
 	};
 }
